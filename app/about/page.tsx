@@ -246,7 +246,7 @@ export default function About() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-screen flex items-center bg-[var(--background)] overflow-hidden"
+        className="relative min-h-screen flex items-center bg-[var(--background)] overflow-hidden px-4 sm:px-6 lg:px-8"
       >
         {/* Subtle grid pattern background */}
         <div className="absolute inset-0 grid-pattern opacity-50"></div>

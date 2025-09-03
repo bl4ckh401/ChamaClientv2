@@ -9,11 +9,12 @@ export function HeroSection() {
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/5 via-transparent to-[var(--secondary)]/5"></div>
 
-      <div className="relative top-[120px] h-full flex flex-col items-center justify-start text-center px-4">
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gradient mb-4">
+      {/* Content */}
+      <div className="relative w-full container z-10 px-4 md:px-0 flex flex-col items-center md:items-center">
+        <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gradient mb-4 md:mb-6 text-center">
           Frequently Asked Questions
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-[var(--foreground)] mb-6 md:mb-8">
+        <p className="text-lg sm:text-lg md:text-xl text-[var(--foreground)] mb-6 md:mb-8 text-center max-w-[600px] md:max-w-none">
           Explore our FAQ to find answers to your most pressing questions about
           our platform.
         </p>

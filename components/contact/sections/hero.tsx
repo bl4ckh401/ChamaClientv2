@@ -8,11 +8,11 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/5 via-transparent to-[var(--secondary)]/5"></div>
 
       {/* Content */}
-      <div className="relative w-full container z-10 px-4 md:px-0 flex flex-col items-center md:items-start">
-        <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gradient mb-4 md:mb-6 text-center md:text-left">
+      <div className="relative w-full container z-10 px-4 md:px-0 flex flex-col items-center">
+        <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gradient mb-4 md:mb-6 text-center">
           Contact Us
         </h1>
-        <p className="text-lg sm:text-lg md:text-xl text-[var(--foreground)] mb-6 md:mb-8 text-center md:text-left max-w-[600px] md:max-w-none">
+        <p className="text-lg sm:text-lg md:text-xl text-[var(--foreground)] mb-6 md:mb-8 text-center max-w-[600px] md:max-w-none">
           We're here to assist you with any questions or feedback you may have.
         </p>
       </div>

@@ -27,7 +27,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
-  // const [isMounted, setIsMounted] = useState(false);
+  const [isCompanyMobileOpen, setIsCompanyMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollDirection, setScrollDirection] = useState<"up" | "down">("up");
   const [logoError, setLogoError] = useState(false);
@@ -47,10 +47,6 @@ const Navbar = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
   const isDesktop = useMediaQuery({ minWidth: 1025 });
-
-  // useEffect(() => {
-  //   setIsMounted(true);
-  // }, []);
 
   // Scroll detection and navbar behavior
   useEffect(() => {
@@ -76,230 +72,30 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // // GSAP Animations
-  // useEffect(() => {
-  //   if (!isMounted || !navbarRef.current) return;
-
-  //   const ctx = gsap.context(() => {
-  //     // Initial navbar animation
-  //     gsap.fromTo(
-  //       navbarRef.current,
-  //       {
-  //         y: -100,
-  //         opacity: 0,
-  //       },
-  //       {
-  //         y: 0,
-  //         opacity: 1,
-  //         duration: 1.2,
-  //         ease: "power3.out",
-  //         delay: 0.2,
-  //       }
-  //     );
-
-  //     // Links stagger animation
-  //     if (linksRef.current) {
-  //       const links = linksRef.current.children;
-  //       gsap.fromTo(
-  //         links,
-  //         {
-  //           y: -30,
-  //           opacity: 0,
-  //         },
-  //         {
-  //           y: 0,
-  //           opacity: 1,
-  //           duration: 0.8,
-  //           stagger: 0.1,
-  //           ease: "power2.out",
-  //           delay: 0.8,
-  //         }
-  //       );
-  //     }
-
-  //     // CTA buttons animation
-  //     if (ctaRef.current) {
-  //       gsap.fromTo(
-  //         ctaRef.current.children,
-  //         {
-  //           x: 50,
-  //           opacity: 0,
-  //         },
-  //         {
-  //           x: 0,
-  //           opacity: 1,
-  //           duration: 0.8,
-  //           stagger: 0.1,
-  //           ease: "power2.out",
-  //           delay: 1,
-  //         }
-  //       );
-  //     }
-
-  //     // Theme toggle animation
-  //     if (themeToggleRef.current) {
-  //       gsap.fromTo(
-  //         themeToggleRef.current,
-  //         {
-  //           scale: 0,
-  //           rotation: 180,
-  //         },
-  //         {
-  //           scale: 1,
-  //           rotation: 0,
-  //           duration: 0.6,
-  //           ease: "back.out(2)",
-  //           delay: 1.2,
-  //         }
-  //       );
-  //     }
-  //   }, navbarRef);
-
-  //   return () => ctx.revert();
-  // }, [isMounted]);
-
-  // // Navbar visibility animation based on scroll
-  // useEffect(() => {
-  //   if (!navbarRef.current) return;
-
-  //   if (scrollDirection === "down" && isScrolled) {
-  //     gsap.to(navbarRef.current, {
-  //       y: -100,
-  //       duration: 0.3,
-  //       ease: "power2.inOut",
-  //     });
-  //   } else {
-  //     gsap.to(navbarRef.current, {
-  //       y: 0,
-  //       duration: 0.3,
-  //       ease: "power2.inOut",
-  //     });
-  //   }
-  // }, [scrollDirection, isScrolled]);
-
-  // // Mobile menu animations
-  // useEffect(() => {
-  //   if (!mobileMenuRef.current) return;
-
-  //   if (isOpen) {
-  //     gsap.fromTo(
-  //       mobileMenuRef.current,
-  //       {
-  //         height: 0,
-  //         opacity: 0,
-  //       },
-  //       {
-  //         height: "auto",
-  //         opacity: 1,
-  //         duration: 0.4,
-  //         ease: "power2.out",
-  //       }
-  //     );
-
-  //     // Animate menu items
-  //     const menuItems =
-  //       mobileMenuRef.current.querySelectorAll(".mobile-menu-item");
-  //     gsap.fromTo(
-  //       menuItems,
-  //       {
-  //         x: -50,
-  //         opacity: 0,
-  //       },
-  //       {
-  //         x: 0,
-  //         opacity: 1,
-  //         duration: 0.3,
-  //         stagger: 0.05,
-  //         ease: "power2.out",
-  //         delay: 0.1,
-  //       }
-  //     );
-  //   }
-  // }, [isOpen]);
-
-  // // Dropdown animation
-  // useEffect(() => {
-  //   if (!dropdownRef.current) return;
-
-  //   if (isCompanyOpen) {
-  //     gsap.fromTo(
-  //       dropdownRef.current,
-  //       {
-  //         scale: 0.8,
-  //         opacity: 0,
-  //         y: -10,
-  //       },
-  //       {
-  //         scale: 1,
-  //         opacity: 1,
-  //         y: 0,
-  //         duration: 0.3,
-  //         ease: "back.out(1.2)",
-  //       }
-  //     );
-
-  //     // Animate dropdown items
-  //     const dropdownItems = dropdownRef.current.children;
-  //     gsap.fromTo(
-  //       dropdownItems,
-  //       {
-  //         x: -20,
-  //         opacity: 0,
-  //       },
-  //       {
-  //         x: 0,
-  //         opacity: 1,
-  //         duration: 0.2,
-  //         stagger: 0.03,
-  //         ease: "power2.out",
-  //         delay: 0.1,
-  //       }
-  //     );
-  //   }
-  // }, [isCompanyOpen]);
-
-  // Hover animations for interactive elements
-  const handleLinkHover = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    gsap.to(e.currentTarget, {
-      scale: 1.05,
-      duration: 0.2,
-      ease: "power2.out",
-    });
-  };
-
-  const handleLinkLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    gsap.to(e.currentTarget, {
-      scale: 1,
-      duration: 0.2,
-      ease: "power2.out",
-    });
-  };
-
-  const handleButtonHover = (e: React.MouseEvent<HTMLElement>) => {
-    gsap.to(e.currentTarget, {
-      scale: 1.05,
-      y: -2,
-      duration: 0.2,
-      ease: "power2.out",
-    });
-  };
-
-  const handleButtonLeave = (e: React.MouseEvent<HTMLElement>) => {
-    gsap.to(e.currentTarget, {
-      scale: 1,
-      y: 0,
-      duration: 0.2,
-      ease: "power2.out",
-    });
-  };
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      // save current overflow to restore later if needed
+      const previous = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = previous || "";
+      };
+    }
+  }, [isOpen]);
 
   // Close mobile menu when clicking outside
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      if (!target.closest(".navbar-container")) {
+      // Close when clicking outside the navbar container and mobile menu
+      if (
+        !target.closest(".navbar-container") &&
+        !target.closest(".mobile-menu-root")
+      ) {
         setIsOpen(false);
         setIsCompanyOpen(false);
+        setIsCompanyMobileOpen(false);
       }
     };
 
@@ -351,10 +147,40 @@ const Navbar = () => {
     },
   ];
 
-  // Don't render until mounted to avoid hydration issues
-  // if (!isMounted) {
-  //   return null;
-  // }
+  // Hover animations for interactive elements
+  const handleLinkHover = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    gsap.to(e.currentTarget, {
+      scale: 1.05,
+      duration: 0.2,
+      ease: "power2.out",
+    });
+  };
+
+  const handleLinkLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    gsap.to(e.currentTarget, {
+      scale: 1,
+      duration: 0.2,
+      ease: "power2.out",
+    });
+  };
+
+  const handleButtonHover = (e: React.MouseEvent<HTMLElement>) => {
+    gsap.to(e.currentTarget, {
+      scale: 1.05,
+      y: -2,
+      duration: 0.2,
+      ease: "power2.out",
+    });
+  };
+
+  const handleButtonLeave = (e: React.MouseEvent<HTMLElement>) => {
+    gsap.to(e.currentTarget, {
+      scale: 1,
+      y: 0,
+      duration: 0.2,
+      ease: "power2.out",
+    });
+  };
 
   return (
     <nav
@@ -412,7 +238,7 @@ const Navbar = () => {
                       : "text-[#93F1AD]/30 bg-[#93F1AD]/10"
                     : theme === "dark"
                     ? "text-[var(--foreground)] hover:text-[#93F1AD] hover:bg-zinc-800/40"
-                    : "text-gray-700 hover:text-[#93F1AD]/30 hover:bg-gray-100/60"
+                    : "text-gray-700 hover:text-[#93F1AD] hover:bg-gray-100/60"
                 } shadow-sm`}
               >
                 Home
@@ -513,9 +339,7 @@ const Navbar = () => {
                         ? "bg-gradient-to-br from-black/95 via-zinc-900/95 to-black/95 border border-zinc-800/60"
                         : "bg-gradient-to-br from-white/95 via-gray-100/95 to-white/95 border border-gray-200/60"
                     } backdrop-blur-2xl rounded-2xl shadow-xl p-4 space-y-4 z-50 ${
-                      theme === "dark"
-                        ? "shadow-[#93F1AD]/20"
-                        : "shadow-[#93F1AD]/20"
+                      theme === "dark" ? "shadow-[#93F1AD]/20" : "shadow-[#93F1AD]/20"
                     } overflow-y-auto max-h-[32rem]`}
                   >
                     {companyLinks.map((link) => {
@@ -552,9 +376,7 @@ const Navbar = () => {
                             </div>
                             <div
                               className={`text-sm ${
-                                theme === "dark"
-                                  ? "text-zinc-400"
-                                  : "text-gray-500"
+                                theme === "dark" ? "text-zinc-400" : "text-gray-500"
                               } group-hover:opacity-80 transition-opacity duration-300`}
                             >
                               {link.description}
@@ -646,7 +468,13 @@ const Navbar = () => {
             {/* Mobile menu button */}
             {isMobile && (
               <button
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                  if (isOpen) {
+                    // closing - also collapse mobile company accordion
+                    setIsCompanyMobileOpen(false);
+                  }
+                }}
                 onMouseEnter={handleButtonHover}
                 onMouseLeave={handleButtonLeave}
                 className={`md:hidden p-2.5 rounded-xl transition-all duration-300 ${
@@ -668,17 +496,20 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isMobile && isOpen && (
+          // root wrapper has class mobile-menu-root to help outside click detection
           <div
             ref={mobileMenuRef}
-            className={`md:hidden ${
+            className={`mobile-menu-root md:hidden ${
               theme === "dark"
-                ? "bg-gradient-to-br from-black/95 via-zinc-900/95 to-black/95 backdrop-blur-2xl"
-                : "bg-gradient-to-br from-white/95 via-gray-100/95 to-white/95 backdrop-blur-2xl"
+                ? "bg-gradient-to-br from-black/95 via-zinc-900/95 to-black/95"
+                : "bg-gradient-to-br from-white/95 via-gray-100/95 to-white/95"
             } border-t ${
               theme === "dark" ? "border-zinc-800/60" : "border-gray-200/60"
-            } absolute top-full left-0 right-0 shadow-2xl rounded-b-2xl z-50`}
+            } fixed top-16 left-0 right-0 bottom-0 shadow-2xl z-50`}
+            style={{ WebkitOverflowScrolling: "touch" }}
           >
-            <div className="px-5 pt-6 pb-8 space-y-6">
+            {/* make inner content scrollable */}
+            <div className="h-full overflow-auto px-5 pt-6 pb-8 space-y-6">
               {/* Main navigation links */}
               <div className="space-y-4">
                 <Link
@@ -692,7 +523,10 @@ const Navbar = () => {
                       ? "text-[var(--foreground)] hover:text-[#93F1AD] hover:bg-zinc-800/40"
                       : "text-gray-700 hover:text-[#93F1AD] hover:bg-gray-100/60"
                   }`}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setIsOpen(false);
+                    setIsCompanyMobileOpen(false);
+                  }}
                 >
                   Home
                 </Link>
@@ -708,7 +542,10 @@ const Navbar = () => {
                       ? "text-[var(--foreground)] hover:text-[#93F1AD] hover:bg-zinc-800/40"
                       : "text-gray-700 hover:text-[#93F1AD] hover:bg-gray-100/60"
                   }`}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setIsOpen(false);
+                    setIsCompanyMobileOpen(false);
+                  }}
                 >
                   Features
                 </Link>
@@ -724,58 +561,78 @@ const Navbar = () => {
                       ? "text-[var(--foreground)] hover:text-[#93F1AD] hover:bg-zinc-800/40"
                       : "text-gray-700 hover:text-[#93F1AD] hover:bg-gray-100/60"
                   }`}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setIsOpen(false);
+                    setIsCompanyMobileOpen(false);
+                  }}
                 >
                   Pricing
                 </Link>
               </div>
 
-              {/* Company section */}
-              <div className="space-y-4">
-                <div
-                  className={`px-4 py-2 text-lg font-medium ${
-                    theme === "dark" ? "text-zinc-400" : "text-gray-500"
+              {/* Company accordion (mobile) */}
+              <div className="space-y-2">
+                <button
+                  onClick={() => setIsCompanyMobileOpen((s) => !s)}
+                  className={`w-full flex items-center justify-between px-4 py-3 text-lg font-medium rounded-xl transition-all duration-200 ${
+                    theme === "dark"
+                      ? "text-[var(--foreground)] hover:text-[#93F1AD] hover:bg-zinc-800/40"
+                      : "text-gray-700 hover:text-[#93F1AD] hover:bg-gray-100/60"
                   }`}
+                  aria-expanded={isCompanyMobileOpen}
                 >
-                  Company
-                </div>
-                {companyLinks.map((link) => {
-                  const IconComponent = link.icon;
-                  return (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={`mobile-menu-item flex items-center gap-4 px-4 py-3 ml-1 rounded-xl ${
-                        isActive(link.href)
-                          ? theme === "dark"
-                            ? "text-[#93F1AD] bg-[#93F1AD]/10"
-                            : "text-[#93F1AD] bg-[#93F1AD]/10"
-                          : theme === "dark"
-                          ? "text-[var(--foreground)] hover:text-[#93F1AD] hover:bg-zinc-800/40"
-                          : "text-gray-700 hover:text-[#93F1AD] hover:bg-gray-100/60"
-                      }`}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      <div
-                        className={`p-2.5 rounded-lg ${
-                          theme === "dark" ? "bg-zinc-800/40" : "bg-gray-100/60"
-                        } shadow-md`}
-                      >
-                        <IconComponent className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <div className="font-bold">{link.title}</div>
-                        <div
-                          className={`text-sm ${
-                            theme === "dark" ? "text-zinc-400" : "text-gray-500"
+                  <span>Company</span>
+                  <ChevronDown
+                    className={`h-5 w-5 transition-transform duration-200 ${
+                      isCompanyMobileOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                {isCompanyMobileOpen && (
+                  <div className="pl-2 pr-2 space-y-2">
+                    {companyLinks.map((link) => {
+                      const IconComponent = link.icon;
+                      return (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className={`mobile-menu-item flex items-center gap-4 px-4 py-3 ml-1 rounded-xl ${
+                            isActive(link.href)
+                              ? theme === "dark"
+                                ? "text-[#93F1AD] bg-[#93F1AD]/10"
+                                : "text-[#93F1AD] bg-[#93F1AD]/10"
+                              : theme === "dark"
+                              ? "text-[var(--foreground)] hover:text-[#93F1AD] hover:bg-zinc-800/40"
+                              : "text-gray-700 hover:text-[#93F1AD] hover:bg-gray-100/60"
                           }`}
+                          onClick={() => {
+                            setIsOpen(false);
+                            setIsCompanyMobileOpen(false);
+                          }}
                         >
-                          {link.description}
-                        </div>
-                      </div>
-                    </Link>
-                  );
-                })}
+                          <div
+                            className={`p-2.5 rounded-lg ${
+                              theme === "dark" ? "bg-zinc-800/40" : "bg-gray-100/60"
+                            } shadow-md`}
+                          >
+                            <IconComponent className="h-5 w-5" />
+                          </div>
+                          <div>
+                            <div className="font-bold">{link.title}</div>
+                            <div
+                              className={`text-sm ${
+                                theme === "dark" ? "text-zinc-400" : "text-gray-500"
+                              }`}
+                            >
+                              {link.description}
+                            </div>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
 
               {/* Mobile CTA Buttons */}
@@ -791,7 +648,10 @@ const Navbar = () => {
                       ? "text-[var(--foreground)] hover:text-[#93F1AD] hover:bg-zinc-800/40 border-zinc-700/40"
                       : "text-gray-700 hover:text-[#93F1AD] hover:bg-gray-100/60 border-gray-300/40"
                   } backdrop-blur-md shadow-md`}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setIsOpen(false);
+                    setIsCompanyMobileOpen(false);
+                  }}
                 >
                   Login
                 </Link>
@@ -802,7 +662,10 @@ const Navbar = () => {
                       ? "bg-gradient-to-r from-[#93F1AD] to-[#7fd99a] text-black hover:from-[#7fd99a] hover:to-[#93F1AD]"
                       : "bg-gradient-to-r from-[#93F1AD] to-[#5C6BC0] text-[var(--foreground)] hover:from-[#5C6BC0] hover:to-[#93F1AD]"
                   } shadow-md`}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setIsOpen(false);
+                    setIsCompanyMobileOpen(false);
+                  }}
                 >
                   Get Started
                 </Link>
