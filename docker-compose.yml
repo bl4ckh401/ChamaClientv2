@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    image: newchama-client:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: unless-stopped
+    # Example volume for persistent logs (optional)
+    # volumes:
+    #   - ./logs:/var/log/newchama
