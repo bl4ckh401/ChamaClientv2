@@ -241,7 +241,7 @@ const Hero = () => {
           <div className="hero-product relative w-full h-full rounded-2xl">
             <div className="h-full w-full rounded-2xl">
               <Image
-                src="/cc1.png"
+                src="/phone.png"
                 alt="Product Demo"
                 layout="fill"
                 objectFit="contain"

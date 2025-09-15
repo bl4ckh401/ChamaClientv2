@@ -253,7 +253,7 @@ const Footer = () => {
         <div className="pt-8 mt-8 border-t border-[var(--border)]">
           <div className="flex flex-col lg:flex-row justify-between items-center">
             <p className="text-[var(--foreground)] text-sm footer-animate">
-              &copy; 2025 ChamaConnect - MUIAA LTD. All rights reserved.
+              &copy; © 2025. ChamaConnect and its associated trademarks, branding, and digital assets are the intellectual property of MUUIA Ltd. Unauthorized reproduction, distribution, or modification of any content, including but not limited to text, graphics, logos, platform code, and user-generated content, is strictly prohibited. ChamaConnect is a community-driven financial management platform designed to connect African savings groups and empower their financial growth. It does not constitute professional or financial advice. Users are responsible for ensuring compliance with applicable regulations, including data protection laws and any relevant guidelines issued by regulatory authorities in their jurisdiction. For inquiries, collaborations, or regulatory concerns, please contact: +254-718-540-760.
             </p>
             
             <div className="flex space-x-6 mt-4 lg:mt-0 footer-animate">

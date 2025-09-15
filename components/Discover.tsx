@@ -283,7 +283,7 @@ const Discover = () => {
               ref={(el: HTMLDivElement | null) => {
                 stepRefs.current[index] = el;
               }}
-              className={`step-item step-${index} p-6 bg-[var(--card-bg)] rounded-xl border border-[var(--border)] shadow-lg transition-all duration-300 ${activeStep >= index ? 'opacity-100' : 'opacity-40'}`}
+              className={`p-6 bg-[var(--card-bg)] rounded-xl border border-[var(--border)] shadow-lg transition-all duration-300 ${activeStep >= index ? 'opacity-100' : 'opacity-40'}`}
             >
               {/* Mobile step number indicator */}
               {isMobile && (

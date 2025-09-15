@@ -642,7 +642,7 @@ const Navbar = () => {
                 }`}
               >
                 <Link
-                  href="/login"
+                  href="https://app.chamaconnect.co.ke/login"
                   className={`mobile-menu-item block w-full text-center px-4 py-3 text-lg font-medium rounded-xl border border-white/10 ${
                     theme === "dark"
                       ? "text-[var(--foreground)] hover:text-[#93F1AD] hover:bg-zinc-800/40 border-zinc-700/40"
@@ -656,7 +656,7 @@ const Navbar = () => {
                   Login
                 </Link>
                 <Link
-                  href="/signup"
+                  href="https://app.chamaconnect.co.ke/"
                   className={`mobile-menu-item block w-full text-center px-4 py-3 text-lg font-bold rounded-xl transition-all duration-300 ${
                     theme === "dark"
                       ? "bg-gradient-to-r from-[#93F1AD] to-[#7fd99a] text-black hover:from-[#7fd99a] hover:to-[#93F1AD]"
